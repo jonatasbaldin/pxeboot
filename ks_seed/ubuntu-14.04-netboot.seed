@@ -1,0 +1,61 @@
+d-i debian-installer/locale string en_US
+
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/layoutcode string us
+
+d-i netcfg/choose_interface select auto
+d-i netcfg/dhcp_timeout string 60
+d-i netcfg/get_hostname string localhost
+d-i netcfg/get_domain string localdomain
+d-i netcfg/dhcp_hostname string localhost
+
+# "Install the system, step failed" bug
+d-i live-installer/net-image string http://seg-nas-01/ubuntu14.04/install/filesystem.squashfs
+
+# Local mirror via HTTP
+d-i mirror/country string manual
+d-i mirror/http/hostname string seg-nas-01
+d-i mirror/http/directory string /ubuntu14.04
+d-i mirror/http/proxy string
+
+d-i clock-setup/utc boolean true
+d-i time/zone string America/Sao_Paulo
+
+d-i partman-auto-lvm/guided_size string max
+d-i partman-auto/choose_recipe select home
+d-i partman-auto/method string lvm
+d-i partman-lvm/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/confirm boolean true
+d-i partman-md/confirm_nooverwrite boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+d-i partman/default_filesystem string ext4
+d-i partman/mount_style select uuid
+d-i partman/unmount_active boolean true
+
+d-i passwd/root-login boolean true
+d-i passwd/root-password-crypted password $1$/51P1z6E$eigfbFhKGOM2UZBTOpUCh/
+
+d-i passwd/user-fullname string lab
+d-i passwd/username string lab
+d-i passwd/user-password-crypted password $1$/51P1z6E$eigfbFhKGOM2UZBTOpUCh/
+d-i user-setup/allow-password-weak boolean true
+d-i user-setup/encrypt-home boolean false
+
+d-i pkgsel/update-policy select none
+d-i pkgsel/upgrade select none
+
+# Select the server role
+# none = minimum
+d-i tasksel/first multiselect none 
+
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+
+d-i preseed/late_command string in-target /bin/bash /bin/hostname localhost ;
+
+d-i finish-install/reboot_in_progress note

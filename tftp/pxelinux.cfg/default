@@ -1,0 +1,27 @@
+# best menu, no prompt for boot: and timeout 10 sec
+# the .c32 files and the pxelinux.0 are from syslinux package
+DEFAULT menu.c32
+PROMPT 0
+TIMEOUT 100  
+
+MENU TITLE OS Deploy Boot Menu
+MENU AUTOBOOT Starting Local System in # seconds
+
+LABEL localboot
+  MENU LABEL Boot from first hard drive
+  # use chain.c32 insted of LOCALBOOL .
+  # Win8.1 crashed after exited PXE boot
+  COM32 chain.c32
+  APPEND hd0
+
+# Uses KS file from HTTP and mirror from NFS
+LABEL CentOS-7.0-1406-x86_64-Minimal
+  MENU LABEL CentOS-7.0-1406-x86_64-Minimal
+  kernel ../CentOS-7.0-1406-x86_64-Minimal/vmlinuz
+  append initrd=../CentOS-7.0-1406-x86_64-Minimal/initrd.img ks=http://nginx/ks_seed/ks-centos7-minimum.cfg
+
+# Uses Seed file from HTTP and mirror from HTTP
+LABEL ubuntu-14.04-netboot
+  MENU LABEL ubuntu-14.04-netboot
+  kernel ../ubuntu-14.04-netboot/linux
+  append initrd=../ubuntu-14.04-netboot/initrd.gz hostname=localhost localdomain=localdomain ip=dhcp auto=true url=http://nginx/ks_seed/ubuntu-14.04-netboot.seed
