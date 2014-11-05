@@ -56,6 +56,6 @@ d-i tasksel/first multiselect none
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
 
-d-i preseed/late_command string in-target /bin/bash /bin/hostname localhost ;
+d-i preseed/late_command string in-target /bin/hostname localhost ;
 
 d-i finish-install/reboot_in_progress note
