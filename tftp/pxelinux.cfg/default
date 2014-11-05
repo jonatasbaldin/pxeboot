@@ -18,10 +18,10 @@ LABEL localboot
 LABEL CentOS-7.0-1406-x86_64-Minimal
   MENU LABEL CentOS-7.0-1406-x86_64-Minimal
   kernel ../CentOS-7.0-1406-x86_64-Minimal/vmlinuz
-  append initrd=../CentOS-7.0-1406-x86_64-Minimal/initrd.img ks=http://nginx/ks_seed/ks-centos7-minimum.cfg
+  append initrd=../CentOS-7.0-1406-x86_64-Minimal/initrd.img ks=http://seg-nas-01/ks_seed/ks-centos7-minimum.cfg
 
 # Uses Seed file from HTTP and mirror from HTTP
 LABEL ubuntu-14.04-netboot
   MENU LABEL ubuntu-14.04-netboot
   kernel ../ubuntu-14.04-netboot/linux
-  append initrd=../ubuntu-14.04-netboot/initrd.gz hostname=localhost localdomain=localdomain ip=dhcp auto=true url=http://nginx/ks_seed/ubuntu-14.04-netboot.seed
+  append initrd=../ubuntu-14.04-netboot/initrd.gz hostname=localhost localdomain=localdomain ip=dhcp auto=true url=http://seg-nas-01/ks_seed/ubuntu-14.04-netboot.seed
