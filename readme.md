@@ -46,3 +46,5 @@ TODO
 to find a way to get this files from local mirror)
 * Ubuntu sets hostname from DHCP (Cisco provides this in IP format)
 hardcode hostname after installation 
+* If there's more than one NIC, CentOS tries to get IP from all, make
+it get IP from just the one that receives the KSFile
