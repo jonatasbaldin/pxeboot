@@ -10,7 +10,7 @@ d-i netcfg/get_domain string localdomain
 d-i netcfg/dhcp_hostname string localhost
 
 # "Install the system, step failed" bug
-d-i live-installer/net-image string http://seg-nas-01/ubuntu14.04/install/filesystem.squashfs
+d-i live-installer/net-image string http://seg-nas-01.labjonatas.com/ubuntu14.04/install/filesystem.squashfs
 
 # Local mirror via HTTP
 d-i mirror/country string manual

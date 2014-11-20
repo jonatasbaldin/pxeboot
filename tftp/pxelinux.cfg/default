@@ -24,4 +24,4 @@ LABEL CentOS-7.0-1406-x86_64-Minimal
 LABEL ubuntu-14.04-netboot
   MENU LABEL ubuntu-14.04-netboot
   kernel ../ubuntu-14.04-netboot/linux
-  append initrd=../ubuntu-14.04-netboot/initrd.gz hostname=localhost localdomain=localdomain ip=dhcp auto=true url=http://seg-nas-01/ks_seed/ubuntu-14.04-netboot.seed
+  append initrd=../ubuntu-14.04-netboot/initrd.gz hostname=localhost localdomain=localdomain ip=dhcp auto=true url=http://seg-nas-01.labjonatas.com/ks_seed/ubuntu-14.04-netboot.seed
