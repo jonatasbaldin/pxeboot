@@ -14,7 +14,7 @@ d-i live-installer/net-image string http://seg-nas-01.labjonatas.com/ubuntu14.04
 
 # Local mirror via HTTP
 d-i mirror/country string manual
-d-i mirror/http/hostname string seg-nas-01
+d-i mirror/http/hostname string seg-nas-01.labjonatas.com
 d-i mirror/http/directory string /ubuntu14.04
 d-i mirror/http/proxy string
 
